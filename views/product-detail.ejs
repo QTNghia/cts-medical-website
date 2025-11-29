@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= pageTitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS & JS dùng chung -->
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="/layout.js"></script>
+</head>
+<body>
+    <!-- HEADER (load bằng layout.js) -->
+    <div id="header"></div>
+
+    <main class="page-content">
+
+        <!-- BANNER TRÊN CÙNG (giống trang chuyên khoa) -->
+        <section class="page-banner page-banner-specialty">
+            <img
+                src="/images/banners/banner-fresenius-medical-care-1.jpg"
+                alt="<%= specialtyName %>"
+                class="page-banner-img"
+            />
+        </section>
+
+        <!-- NỘI DUNG CHÍNH -->
+        <section class="section section-alt">
+            <div class="container">
+
+                <!-- BREADCRUMB -->
+                <nav class="product-breadcrumb">
+                    <a href="/">Trang chủ</a>
+                    <span class="product-breadcrumb-separator">/</span>
+
+                    <a href="/san-pham">Sản phẩm</a>
+                    <span class="product-breadcrumb-separator">/</span>
+
+                    <!-- Nếu bạn chưa có specialtySlug, có thể sửa URL này tùy route của bạn -->
+                    <a href="/san-pham/<%= specialtySlug %>"><%= specialtyName %></a>
+                    <span class="product-breadcrumb-separator">/</span>
+
+                    <span class="product-breadcrumb-current"><%= product.name %></span>
+                </nav>
+
+                <!-- TIÊU ĐỀ KHOA + LINE BÊN DƯỚI -->
+                <header class="section-header section-header-left product-detail-header">
+                    <div class="product-detail-specialty-wrap">
+                        <h1 class="product-detail-specialty">
+                            <%= specialtyName %>
+                        </h1>
+                        <div class="product-detail-specialty-line"></div>
+                    </div>
+                </header>
+
+                <!-- LAYOUT 2 CỘT -->
+                <div class="product-detail-layout">
+
+                    <!-- ẢNH -->
+                    <div class="product-detail-image">
+                        <img src="/<%= product.image_path %>" alt="<%= product.name %>">
+                    </div>
+
+                    <!-- DETAIL -->
+                    <div class="product-detail-info">
+                        <!-- TÊN SẢN PHẨM (SẼ ĐƯỢC STYLED BOLD + XANH) -->
+                        <h2 class="product-detail-name"><%= product.name %></h2>
+
+                        <% if (product.short_description) { %>
+                            <p class="product-detail-subtitle">
+                                <%= product.short_description %>
+                            </p>
+                        <% } %>
+
+                        <!-- Mô tả sản phẩm dạng list -->
+                        <% 
+                        const descItems = (product.description || "")
+                            .split("\n")
+                            .map(s => s.trim())
+                            .filter(s => s.length > 0);
+                        %>
+                        <% if (descItems.length > 0) { %>
+                            <h3 class="product-detail-section-title">Mô tả sản phẩm</h3>
+                            <ul class="product-detail-list">
+                                <% descItems.forEach(function (item) { %>
+                                    <li><%= item %></li>
+                                <% }); %>
+                            </ul>
+                        <% } %>
+
+                        <!-- Thông số kỹ thuật chính dạng list -->
+                        <% 
+                        const specsItems = (product.specs || "")
+                            .split("\n")
+                            .map(s => s.trim())
+                            .filter(s => s.length > 0);
+                        %>
+                        <% if (specsItems.length > 0) { %>
+                            <h3 class="product-detail-section-title">Thông số kỹ thuật chính</h3>
+                            <ul class="product-detail-list">
+                                <% specsItems.forEach(function (item) { %>
+                                    <li><%= item %></li>
+                                <% }); %>
+                            </ul>
+                        <% } %>
+
+                        <div class="product-detail-actions">
+                            <a href="/lien-he" class="btn btn-primary">Liên hệ tư vấn</a>
+                            <a href="javascript:history.back()" class="btn btn-outline">Quay lại danh sách</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (load bằng layout.js) -->
+    <div id="footer"></div>
+</body>
+</html>

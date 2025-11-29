@@ -1,0 +1,434 @@
+/*.btn, .card, .feature-*, .newsletter, contact-cta, brand-slider,...*/
+/* HERO – BANNER FULL WIDTH, TEXT ĐÈ TRÁI */
+.hero.hero-full {
+    position: relative;
+    padding: 80px 0 160px;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Banner nền trải ngang toàn màn hình */
+.hero.hero-full::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("images/banners/banner_cts.jpg");
+    background-size: cover;
+    background-position: center top;
+    transform: scale(1.03);
+}
+
+/* Lớp gradient: bên trái đậm, sang phải nhạt dần */
+.hero.hero-full::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(8, 20, 48, 0.75) 0%,
+        rgba(8, 20, 48, 0.55) 30%,
+        rgba(8, 20, 48, 0.25) 60%,
+        rgba(8, 20, 48, 0.05) 85%,
+        rgba(8, 20, 48, 0) 100%
+    );
+}
+
+/* nội dung hero nằm trong container, căn trái */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hero-text {
+    max-width: 560px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: clamp(1.9rem, 2.4vw + 1rem, 2.7rem);
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.hero-text p {
+    font-size: 1rem;
+    max-width: 540px;
+    color: #e5ecff;
+    margin-bottom: 22px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #0b5ea8;
+    border-color: #0b5ea8;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #094c87;
+    border-color: #094c87;
+}
+
+.btn-outline {
+    background: #ffffff;
+    border-color: #0b5ea8;
+    color: #0b5ea8;
+}
+
+.btn-outline:hover {
+    background: #e5f3ff;
+}
+
+/* TẠI SAO CHỌN CHÚNG TÔI */
+.section-why .section-header h2 {
+    text-transform: uppercase;
+}
+
+.feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.feature-item {
+    text-align: center;
+    padding: 18px 16px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    border: 1px solid #e3e7f0;
+}
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    border: 2px solid #0b5ea8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #0b5ea8;
+    font-size: 1rem;
+    background: #f5f9ff;
+}
+
+.feature-item h3 {
+    font-size: 1.05rem;
+    color: #102a43;
+    margin-bottom: 6px;
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: #52606d;
+}
+
+/* CARD */
+.card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px 16px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    border: 1px solid #e3e7f0;
+}
+
+.card h3 {
+    font-size: 1.05rem;
+    color: #102a43;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #52606d;
+    margin-bottom: 10px;
+}
+
+.card-link {
+    display: inline-flex;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #0b5ea8;
+}
+
+.card-link::after {
+    content: " →";
+}
+
+/* Ảnh ở đầu mỗi card danh mục */
+.card-thumb {
+    margin-bottom: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f5f7fb;
+
+    /* KHUNG CỐ ĐỊNH */
+    height: 350px;                 /* chỉnh cao/thấp tùy ý: 200–260px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-thumb img {
+    height: 100%;                  /* luôn cao bằng khung */
+    width: auto;                   /* tự co theo tỉ lệ gốc */
+    max-width: 100%;               /* không cho tràn ngang ra khỏi card */
+    display: block;
+}
+
+/* NEWS CARD */
+.card-news {
+    position: relative;
+    padding-top: 26px;
+}
+
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    display: inline-flex;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    background: #e5f3ff;
+    color: #0b5ea8;
+}
+
+/* NEWSLETTER */
+.newsletter {
+    background: linear-gradient(120deg, #0b5ea8, #1d8ad8);
+    color: #ffffff;
+}
+
+.newsletter-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 24px;
+}
+
+.newsletter-text h2 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.newsletter-text p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.newsletter-form input {
+    flex: 1 1 160px;
+    min-width: 0;
+    padding: 9px 10px;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.newsletter-form .btn-primary {
+    border-radius: 999px;
+}
+
+/* ==========================
+   BANNER LIÊN HỆ TRÊN FOOTER
+   ========================== */
+
+.contact-cta {
+    position: relative;
+    padding: 60px 0 70px;
+    color: #ffffff;
+    text-align: center;
+    overflow: visible;   /* <<< quan trọng: để mũi tên không bị cắt */
+    border-bottom: 4px solid #00b7c9;
+
+    /* Ảnh nền + lớp gradient tối */
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.6)
+        ),
+        url("images/banners/banner-1.jpg"); /* ĐỔI đường dẫn ảnh theo bạn */
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.contact-cta-inner h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.contact-cta-inner p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+/* Thanh gạch nhỏ dưới tiêu đề */
+.contact-cta-divider {
+    width: 60px;
+    height: 4px;
+    border-radius: 999px;
+    background: #00b7c9;
+    margin: 10px auto 20px;
+}
+
+/* Nút LIÊN HỆ */
+.contact-cta-btn {
+    margin-top: 18px;
+    padding: 10px 36px;
+    border-radius: 999px;
+    border: 2px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.contact-cta-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Mũi tên nhỏ "Back to top" dưới banner liên hệ */
+.contact-cta-pointer {
+    position: absolute;
+    left: 50%;
+    bottom: -35px; /* đẩy xuống thêm vì tam giác cao hơn */
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 28px solid transparent; /* chỉnh kích thước tam giác */
+    border-right: 28px solid transparent; /* chỉnh kích thước tam giác */
+    border-top: 33px solid #00b7c9; /* chỉnh kích thước tam giác */
+    cursor: pointer;           /* hiện tay khi rê chuột */
+}
+
+/* Hiển thị icon mũi tên ↑ bên trong tam giác */
+.contact-cta-pointer::after {
+    content: "↑";
+    position: absolute;
+    top: -40px;          /* đẩy lên/xuống để nằm giữa tam giác mới */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;     /* to hơn: 16px hoặc 18px */
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Đối tác & Thương hiệu ở trang HOME */
+.brand-section-home .section-header-center {
+    text-align: center;
+}
+
+.brand-section-home .section-header-center h2 {
+    margin-bottom: 8px;
+}
+
+/* Vùng slider */
+.brand-slider {
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Dãy logo chạy ngang */
+.brand-slider-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;                 /* khoảng cách giữa logo */
+    animation: brand-marquee 30s linear infinite;
+}
+
+/* Card logo trong slider: co lại, không quá to */
+.brand-slider-inner .brand-card {
+    flex: 0 0 auto;
+    min-width: 140px;
+    padding: 12px 16px;
+}
+
+/* Logo bên trong: luôn vừa khung */
+.brand-slider-inner .brand-card img {
+    display: block;
+    max-width: 100%;
+    max-height: 60px;          /* chỉnh chiều cao tối đa cho đẹp */
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Animation trượt từ phải sang trái */
+@keyframes brand-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* vì đã nhân đôi logo, trượt nửa dải là lặp lại */
+    }
+}
+
+/* Thương hiệu phân phối */
+.brand-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 20px;
+}
+
+.brand-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 18px;
+    background: #ffffff;
+}
+
+.brand-card img {
+    max-width: 100%;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+.brand-card-empty {
+    background: #f1f4fb;
+    border-style: dashed;
+    border-color: #d2d8e5;
+}
+
+/* phóng to riêng một số logo */
+.brand-gemmyco img,
+.brand-joson-care img {
+    transform: scale(1.4);
+}

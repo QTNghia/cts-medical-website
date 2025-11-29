@@ -1,0 +1,185 @@
+/*hero trang home, intro-cts, intro-message, vmv-*, brand-grid, product-**/
+/* =========================
+   GIỚI THIỆU CÔNG TY
+   gioi-thieu.html
+   ========================= */
+
+/* Banner trang Giới thiệu */
+.page-banner {
+    width: 100%;
+    background: #000;        /* fallback nếu ảnh chưa load */
+    overflow: hidden;
+}
+
+.page-banner-img {
+    width: 100%;
+    display: block;
+    max-height: 300px;       /* chỉnh cao/thấp tuỳ ý: 220–320px */
+    object-fit: cover;       /* cắt ảnh cho vừa khung, không méo */
+}
+
+/* Nếu muốn banner sát mép trên, giảm khoảng trống phía sau */
+.page-banner + .section {
+    margin-top: 16px;
+}
+
+.section-header-left {
+    text-align: left;
+}
+
+.section-header-left h1,
+.section-header-left h2 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #00458a;
+}
+
+.intro-layout {
+    display: block;              /* 1 cột */
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.intro-text p + p {
+    margin-top: 10px;
+}
+
+.intro-highlight {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px 16px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    border: 1px solid #e3e7f0;
+}
+
+.intro-highlight h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: #102a43;
+}
+
+.intro-highlight ul {
+    padding-left: 18px;
+    font-size: 0.95rem;
+    color: #52606d;
+}
+
+.intro-highlight li + li {
+    margin-top: 4px;
+}
+
+/* Block "Thông điệp từ CTS" – full ngang nội dung + overlay giống intro-cts */
+.intro-message {
+    margin: 16px 0 24px;
+}
+
+.intro-message .intro-highlight {
+    width: 100%;
+    max-width: 100%;
+
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    border: 1px solid #e3e7f0;
+
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* Ảnh nền */
+.intro-message .intro-highlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("images/banners/home-contact-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Lớp phủ gradient xanh giống block GIỚI THIỆU CTS */
+.intro-message .intro-highlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 124, 167, 0.9) 0%,
+        rgba(0, 124, 167, 0.8) 30%,
+        rgba(0, 124, 167, 0.4) 60%,
+        rgba(0, 124, 167, 0.12) 85%,
+        rgba(0, 124, 167, 0.0) 100%
+    );
+}
+
+/* Để nội dung nằm trên 2 lớp overlay */
+.intro-message .intro-highlight > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Màu chữ */
+.intro-message .intro-highlight h3,
+.intro-message .intro-highlight li {
+    color: #ffffff;
+}
+
+/* Tầm nhìn – Sứ mệnh – Giá trị cốt lõi */
+.vmv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.vmv-card h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #00458a;
+}
+
+.vmv-card p {
+    font-size: 0.95rem;
+    color: #52606d;
+}
+
+.vmv-list {
+    padding-left: 18px;
+    font-size: 0.95rem;
+    color: #52606d;
+}
+
+.vmv-list li + li {
+    margin-top: 4px;
+}
+
+/* Thương hiệu phân phối */
+.brand-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 20px;
+}
+
+.brand-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 18px;
+    background: #ffffff;
+}
+
+.brand-card img {
+    max-width: 100%;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+.brand-card-empty {
+    background: #f1f4fb;
+    border-style: dashed;
+    border-color: #d2d8e5;
+}
+
+/* phóng to riêng một số logo */
+.brand-gemmyco img,
+.brand-joson-care img {
+    transform: scale(1.4);
+}

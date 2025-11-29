@@ -1,0 +1,99 @@
+<!-- BANNER TRÊN CÙNG (dùng chung style page-banner) -->
+<section class="page-banner page-banner-contact">
+    <!-- dùng 1 banner có sẵn, bạn có thể đổi file ảnh nếu muốn -->
+    <img src="/images/banners/home-contact-bg.jpg"
+         alt="Liên hệ CTS"
+         class="page-banner-img">
+</section>
+
+<!-- KHỐI LIÊN HỆ CHÍNH -->
+<section class="section section-contact">
+    <div class="container">
+        <div class="contact-layout">
+
+            <!-- CỘT TRÁI: THÔNG TIN LIÊN HỆ (LIỆT KÊ TRỰC TIẾP, KHÔNG DROPLIST) -->
+            <aside class="contact-card contact-info">
+                <div class="contact-card-header">
+                    THÔNG TIN LIÊN HỆ
+                </div>
+                <div class="contact-card-body">
+
+                    <div class="contact-info-item">
+                        <img class="contact-info-icon" src="/images/icons/icon-location.svg" alt="Địa chỉ">
+                        <div>
+                            <h4>ĐỊA CHỈ</h4>
+                            <p>Số 6B, Đường số 9, Khu dân cư Hồng Phát,<br>Phường An Bình, Thành phố Cần Thơ</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <img class="contact-info-icon" src="/images/icons/icon-phone.svg" alt="Điện thoại">
+                        <div>
+                            <h4>ĐIỆN THOẠI</h4>
+                            <p>0888 967 969</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <img class="contact-info-icon" src="/images/icons/icon-email.svg" alt="Email">
+                        <div>
+                            <h4>EMAIL</h4>
+                            <p>thietbiyte.cts@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <img class="contact-info-icon" src="/images/icons/icon-time.svg" alt="Thời gian làm việc">
+                        <div>
+                            <h4>THỜI GIAN LÀM VIỆC</h4>
+                            <p><strong>Thứ 2 - Thứ 6:</strong> 07:30 - 17:30</p>
+                            <p><strong>Thứ 7:</strong> 07:30 - 11:30</p>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- CỘT PHẢI: FORM LIÊN HỆ -->
+            <section class="contact-card contact-form-wrapper">
+                <div class="contact-card-header contact-card-header-right">
+                    FORM LIÊN HỆ
+                </div>
+
+                <div class="contact-card-body">
+                    <form id="contact-form" class="contact-form">
+
+                        <div class="contact-form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Họ &amp; Tên" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-row">
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Điện thoại">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" placeholder="Tiêu đề">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="message" rows="6" placeholder="Nội dung" required></textarea>
+                        </div>
+
+                        <div class="contact-submit">
+                            <button type="submit" class="btn contact-submit-btn">GỬI</button>
+                        </div>
+
+                        <p class="contact-form-note" id="contact-form-status"></p>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>

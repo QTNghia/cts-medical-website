@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= pageTitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS & JS dùng chung -->
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="/layout.js"></script>
+</head>
+<body>
+    <!-- HEADER (load bằng layout.js) -->
+    <div id="header"></div>
+
+    <main class="page-content">
+
+        <!-- BANNER TRÊN CÙNG CHO TRANG CHUYÊN KHOA -->
+        <section class="page-banner page-banner-specialty">
+            <img
+                src="/images/banners/banner-fresenius-medical-care-1.jpg"
+                alt="<%= specialtyName %>"
+                class="page-banner-img"
+            />
+        </section>
+
+        <!-- NỘI DUNG CHÍNH -->
+        <section class="section section-alt">
+            <div class="container">
+                <header class="section-header section-header-left">
+                    <h1><%= specialtyName %></h1>
+                    <p>
+                        Danh sách chi tiết thiết bị dành cho <%= specialtyName %> của CTS.
+                    </p>
+                </header>
+
+                <div class="product-layout">
+                    <!-- SIDEBAR DANH SÁCH CHUYÊN KHOA -->
+                    <aside class="product-sidebar">
+                        <h3>Danh sách chuyên khoa</h3>
+                        <ul>
+                            <% specialties.forEach(function (s) { %>
+                                <li>
+                                    <a href="/san-pham/<%= s.slug %>"
+                                       class="<%= slug === s.slug ? 'active' : '' %>">
+                                        <%= s.name %>
+                                    </a>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    </aside>
+
+                    <!-- DANH SÁCH SẢN PHẨM 3 CỘT -->
+                    <!--
+                    <div class="product-list product-category-grid">
+                        <% if (products.length === 0) { %>
+                            <p>Chưa có sản phẩm cho chuyên khoa này.</p>
+                        <% } %>
+
+                        <% products.forEach(function (p) { %>
+                            <article class="card product-feature-card">
+                                <div class="product-feature-main">
+                                    <div class="product-feature-image">
+                                        <img src="/<%= p.image_path %>" alt="<%= p.name %>" />
+                                    </div>
+                                    <div class="product-feature-content">
+                                        <h3><%= p.name %></h3>
+                                        <p><%= p.short_description %></p>
+                                        <a href="#" class="card-link">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                                <div class="product-feature-footer">
+                                    <span><%= p.name %></span>
+                                    <span class="product-feature-footer-icon">›</span>
+                                </div>
+                            </article>
+                        <% }); %>
+                    </div>
+                    -->
+
+                    <!-- DANH SÁCH SẢN PHẨM 3 CỘT: ẢNH TRÊN – TITLE – NÚT VIỀN -->
+                    <div class="product-list">
+                        <% if (products.length === 0) { %>
+                            <p>Chưa có sản phẩm cho chuyên khoa này.</p>
+                        <% } %>
+
+                        <% products.forEach(function (p) { %>
+                            <!-- Cả block này đều click được, sau này bạn đổi href sang link chi tiết -->
+                            <a href="/san-pham/<%= slug %>/<%= p.slug %>"
+                               class="product-item-link">
+                                <article class="card product-card">
+                                    <div class="card-thumb">
+                                        <img src="/<%= p.image_path %>" alt="<%= p.name %>" />
+                                    </div>
+
+                                    <h3><%= p.name %></h3>
+                                    <p><%= p.short_description %></p>
+
+                                    <button class="btn btn-outline product-card-btn">
+                                        Xem chi tiết
+                                    </button>
+                                </article>
+                            </a>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (load bằng layout.js) -->
+    <div id="footer"></div>
+</body>
+</html>
