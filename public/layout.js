@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ========== LOAD HEADER ========== */
     const headerContainer = document.getElementById("header");
     if (headerContainer) {
-        fetch("/header.html")
+        fetch("header.html")
             .then(response => response.text())
             .then(html => {
                 headerContainer.innerHTML = html;
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ========== LOAD FOOTER ========== */
     const footerContainer = document.getElementById("footer");
     if (footerContainer) {
-        fetch("/footer.html")
+        fetch("footer.html")
             .then(response => response.text())
             .then(html => {
                 footerContainer.innerHTML = html;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (mainContainer) {
         // lấy tên page từ data-page trên <body>
         const page = document.body.dataset.page || "home";
-        const contentFile = `/content-${page}.html`;
+        const contentFile = `content-${page}.html`;
 
         fetch(contentFile)
             .then(response => {
